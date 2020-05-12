@@ -30,7 +30,6 @@ public class MainController {
 
     @GetMapping("/")
     public String secret(Model model) {
-        model.addAttribute("nav_tab", "home");
         return "home";
     }
 

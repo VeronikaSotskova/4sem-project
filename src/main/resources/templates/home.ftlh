@@ -1,21 +1,55 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
+    <link rel="stylesheet" href="/static/css/style.css"/>
     <!-- Grid row -->
     <div class="row" style="margin-top: -100px;">
         <!-- Grid column -->
         <div class="col-md-12 px-lg-5">
             <!-- Card -->
-            <div class="card pb-5 mx-md-3">
-                <div class="card-body">
-                    <div class="container">
-                        <h1 class="text-center h1 pt-4 mb-3">
-                            <strong>Welcome</strong>
-
-                        </h1>
+            <div class="container">
+                <noscript>
+                    <h2>Sorry! Your browser doesn't support Javascript</h2>
+                </noscript>
+                <div id="username-page">
+                    <div class="username-page-container">
+                        <h1 class="title">Type your username</h1>
+                        <form id="usernameForm" name="usernameForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Username" autocomplete="off"
+                                       class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="accent username-submit">Start Chatting</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="chat-page" class="hidden">
+                    <div class="chat-container">
+                        <div class="chat-header">
+                            <h2>Anonim Chat</h2>
+                        </div>
+                        <div class="connecting">
+                            Connecting...
+                        </div>
+                        <ul id="messageArea">
+                        </ul>
+                        <form id="messageForm" name="messageForm">
+                            <div class="form-group">
+                                <div class="input-group clearfix">
+                                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off"
+                                           class="form-control"/>
+                                    <button type="submit" class="primary">Send</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="/static/js/main.js"></script>
 </@c.page>

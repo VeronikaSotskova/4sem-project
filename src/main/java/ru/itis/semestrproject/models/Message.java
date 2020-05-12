@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,6 +26,7 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name = "acc_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Account author;
 
     @Column(name = "published_at")
